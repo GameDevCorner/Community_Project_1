@@ -12,6 +12,7 @@ func _ready():
 	current_state.enter()
 
 func change_to_state(new_state : String):
+	print(new_state)
 	current_state.exit()
 	current_state = get_state(new_state)
 	current_state.enter()
