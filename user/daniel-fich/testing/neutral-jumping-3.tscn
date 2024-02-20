@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8g03c7q3lhiw"]
 
-[ext_resource type="PackedScene" uid="uid://bv2o3xgv1pqg0" path="res://core/scenes/base_level.tscn" id="1_k3git"]
+[ext_resource type="PackedScene" uid="uid://bv2o3xgv1pqg0" path="res://core/scenes/base_level.tscn" id="1_ymryf"]
 
-[node name="BaseLevel" instance=ExtResource("1_k3git")]
+[node name="BaseLevel" instance=ExtResource("1_ymryf")]
 
 [node name="Player" parent="." index="1"]
 position = Vector2(-64, 225)

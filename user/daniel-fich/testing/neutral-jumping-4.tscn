@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dpwmmuipfm8nf"]
 
-[ext_resource type="PackedScene" uid="uid://bv2o3xgv1pqg0" path="res://core/scenes/base_level.tscn" id="1_ug2fw"]
-[ext_resource type="Texture2D" uid="uid://c082kxu11bfkm" path="res://core/assets/Checkpoints/End/End (Idle).png" id="2_7v4i8"]
-[ext_resource type="Texture2D" uid="uid://735yiqmhtpy4" path="res://core/assets/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="3_r480l"]
+[ext_resource type="PackedScene" uid="uid://bv2o3xgv1pqg0" path="res://core/scenes/base_level.tscn" id="1_nl7fb"]
+[ext_resource type="Texture2D" uid="uid://c082kxu11bfkm" path="res://core/assets/Checkpoints/End/End (Idle).png" id="2_0gmn5"]
+[ext_resource type="Texture2D" uid="uid://735yiqmhtpy4" path="res://core/assets/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="3_0xyoh"]
 
-[node name="BaseLevel" instance=ExtResource("1_ug2fw")]
+[node name="BaseLevel" instance=ExtResource("1_nl7fb")]
 
 [node name="Player" parent="." index="1"]
 position = Vector2(-64, 225)
@@ -17,8 +17,8 @@ layer_0/tile_data = PackedInt32Array(131081, 131072, 6, 65545, 131072, 4, 131080
 [node name="End(idle)" type="Sprite2D" parent="." index="3"]
 visible = false
 position = Vector2(-63, 320)
-texture = ExtResource("2_7v4i8")
+texture = ExtResource("2_0gmn5")
 
 [node name="Checkpoint(noFlag)" type="Sprite2D" parent="." index="4"]
 position = Vector2(407, -412)
-texture = ExtResource("3_r480l")
+texture = ExtResource("3_0xyoh")
