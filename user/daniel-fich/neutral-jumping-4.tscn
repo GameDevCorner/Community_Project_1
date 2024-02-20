@@ -22,5 +22,3 @@ texture = ExtResource("2_7v4i8")
 [node name="Checkpoint(noFlag)" type="Sprite2D" parent="." index="4"]
 position = Vector2(407, -412)
 texture = ExtResource("3_r480l")
-
-[connection signal="body_entered" from="Autotiles/Goal" to="Autotiles/Goal" method="_on_body_entered"]
