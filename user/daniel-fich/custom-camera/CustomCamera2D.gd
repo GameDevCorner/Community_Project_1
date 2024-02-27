@@ -2,6 +2,9 @@ extends Camera2D
 
 @export var player : Node
 
+var current_camera_area: CameraArea
+var camera_areas: Array
+
 var bound_node : Node
 var bound_offset : Vector2
 var target : Vector2
@@ -9,6 +12,9 @@ var target_offset : Vector2
 var target_offset_target : Vector2
 
 func _ready():
+	current_camera_area = null
+	camera_areas = Array()
+	
 	bound_node = player
 	target = bound_node.position
 	position = target
@@ -56,8 +62,27 @@ func max(a: float, b: float):
 		return b
 	return a
 
-func set_camera_offset(new_offset = Vector2.ZERO, new_target: Node = null, new_bound_offset = Vector2.ZERO):
-	target_offset_target = new_offset
-	bound_node = new_target
-	bound_offset = new_bound_offset
+func set_camera_offset(camera_area: CameraArea, entered: bool):
+	if entered:
+		camera_areas.push_back(camera_area)
+		current_camera_area = camera_areas.back()
+		set_camera_area_values(current_camera_area)
+	else:
+		var remove_index = camera_areas.find(camera_area)
+		if remove_index != -1:
+			camera_areas.remove_at(remove_index)
+		if (camera_areas.size() == 0):
+			current_camera_area = null
+		else:
+			current_camera_area = camera_areas.back()
+		set_camera_area_values(current_camera_area)
 
+func set_camera_area_values(camera_area: CameraArea):
+	if camera_area == null:
+		target_offset_target = Vector2.ZERO
+		bound_node = null
+		bound_offset = Vector2.ZERO
+	else:
+		target_offset_target = camera_area.area_offset
+		bound_node = camera_area.bound_node
+		bound_offset = camera_area.bound_offset
