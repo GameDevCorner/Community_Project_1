@@ -52,10 +52,9 @@ shape = SubResource("RectangleShape2D_l6l83")
 position = Vector2(125, -106)
 shape = SubResource("RectangleShape2D_iio5d")
 
-[node name="CameraArea" parent="." index="7" node_paths=PackedStringArray("target") instance=ExtResource("4_ixuq5")]
+[node name="CameraArea" parent="." index="7" instance=ExtResource("4_ixuq5")]
 position = Vector2(142, -450)
 area_offset = Vector2(0, -50)
-target = NodePath(".")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraArea" index="0"]
 position = Vector2(72.6953, 2.39063)

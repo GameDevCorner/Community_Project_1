@@ -1,9 +1,10 @@
 extends Area2D
 
-@export var area_offset : Vector2
-@export var target : Node
+@export var area_offset: Vector2
+@export var bound_node: Node
+@export var bound_offset: Vector2
 
-signal camera_area_entered(new_offset: Vector2, target: Node)
+signal camera_area_entered(new_offset: Vector2, bound_node: Node, bound_offset: Vector2)
 
 
 func _ready():
@@ -14,7 +15,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.get_name() == "Player":
-		camera_area_entered.emit(area_offset, target)
+		camera_area_entered.emit(area_offset, bound_node, bound_offset)
 
 
 func _on_body_exited(body):
