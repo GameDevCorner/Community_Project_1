@@ -34,7 +34,7 @@ func _ready():
 func disable_main_camera():
 	player.get_node("Camera2D").enabled = false
 
-func _physics_process(delta):
+func _process(delta):
 	target_offset = target_offset.lerp(target_offset_target, delta * 5)
 	
 	target = player.global_position + target_offset
