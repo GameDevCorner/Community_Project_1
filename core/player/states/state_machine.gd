@@ -20,4 +20,3 @@ func change_to_state_node(new_state : state):
 	current_state.enter()
 
 func get_state(state_name : String):
-	return get_node(state_name)
