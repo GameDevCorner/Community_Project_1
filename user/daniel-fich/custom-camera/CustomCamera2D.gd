@@ -11,6 +11,8 @@ var target : Vector2
 var target_offset : Vector2
 var target_offset_target : Vector2
 
+var intended_camera_position: Vector2
+
 var lerp_speed: float
 
 func _ready():
@@ -20,6 +22,7 @@ func _ready():
 	bound_node = player
 	target = bound_node.global_position
 	global_position = target
+	intended_camera_position = global_position
 	
 	target_offset = Vector2(0, 0)
 	target_offset_target = Vector2(0, 0)
@@ -31,14 +34,15 @@ func _ready():
 func disable_main_camera():
 	player.get_node("Camera2D").enabled = false
 
-func _process(delta):
+func _physics_process(delta):
 	target_offset = target_offset.lerp(target_offset_target, delta * 5)
 	
 	target = player.global_position + target_offset
 	
 	keep_target_in_bounds(delta)
 	
-	global_position = global_position.lerp(target, delta * lerp_speed)
+	intended_camera_position = intended_camera_position.lerp(target, delta * lerp_speed)
+	global_position = intended_camera_position #round(intended_camera_position)
 
 func keep_target_in_bounds(delta):
 	if bound_node == null:
