@@ -59,6 +59,7 @@ bound_node = NodePath(".")
 lerp_speed = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraArea" index="0"]
+visible = false
 position = Vector2(-23.5, 0)
 shape = SubResource("RectangleShape2D_vnlpf")
 

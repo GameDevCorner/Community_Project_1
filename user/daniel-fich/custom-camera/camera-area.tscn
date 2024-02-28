@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8yihupnrakas"]
+[gd_scene load_steps=3 format=3 uid="uid://c8yihupnrakas"]
 
 [ext_resource type="Script" path="res://user/daniel-fich/custom-camera/CameraArea.gd" id="1_t5xl1"]
+[ext_resource type="Script" path="res://user/daniel-fich/custom-camera/CameraAreaVisualizer.gd" id="2_hduhc"]
 
 [node name="CameraArea" type="Area2D"]
 script = ExtResource("1_t5xl1")
+
+[node name="Visualizer" type="Node2D" parent="."]
+script = ExtResource("2_hduhc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
