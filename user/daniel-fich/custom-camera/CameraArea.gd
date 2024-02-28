@@ -5,6 +5,7 @@ class_name CameraArea
 @export var area_offset: Vector2
 @export var bound_node: Node
 @export var bound_offset: Vector2
+@export var lerp_speed: float = 5
 
 signal camera_area_entered(camera_area: CameraArea, entered: bool)
 

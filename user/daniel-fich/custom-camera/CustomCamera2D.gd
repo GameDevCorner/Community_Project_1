@@ -11,16 +11,20 @@ var target : Vector2
 var target_offset : Vector2
 var target_offset_target : Vector2
 
+var lerp_speed: float
+
 func _ready():
 	current_camera_area = null
 	camera_areas = Array()
 	
 	bound_node = player
-	target = bound_node.position
-	position = target
+	target = bound_node.global_position
+	global_position = target
 	
 	target_offset = Vector2(0, 0)
 	target_offset_target = Vector2(0, 0)
+	
+	lerp_speed = 5
 	
 	disable_main_camera()
 
@@ -28,19 +32,21 @@ func disable_main_camera():
 	player.get_node("Camera2D").enabled = false
 
 func _process(delta):
-	target = player.position + target_offset
-	
-	keep_target_in_bounds()
-	
 	target_offset = target_offset.lerp(target_offset_target, delta * 5)
-	position = position.lerp(target, delta * 5)
+	
+	target = player.global_position + target_offset
+	
+	keep_target_in_bounds(delta)
+	
+	global_position = global_position.lerp(target, delta * lerp_speed)
 
-func keep_target_in_bounds():
+func keep_target_in_bounds(delta):
 	if bound_node == null:
 		return
 	
-	var min_target = bound_node.position
+	var min_target = bound_node.global_position
 	var max_target = min_target + bound_offset
+	
 	target = real_clamp(target, min_target, max_target)
 
 func real_clamp(vec: Vector2, v1: Vector2, v2: Vector2):
@@ -64,7 +70,7 @@ func max(a: float, b: float):
 
 func set_camera_offset(camera_area: CameraArea, entered: bool):
 	if entered:
-		camera_areas.push_back(camera_area)
+		camera_areas.push_front(camera_area)
 		current_camera_area = camera_areas.back()
 		set_camera_area_values(current_camera_area)
 	else:
@@ -82,7 +88,9 @@ func set_camera_area_values(camera_area: CameraArea):
 		target_offset_target = Vector2.ZERO
 		bound_node = null
 		bound_offset = Vector2.ZERO
+		lerp_speed = 5
 	else:
 		target_offset_target = camera_area.area_offset
 		bound_node = camera_area.bound_node
 		bound_offset = camera_area.bound_offset
+		lerp_speed = camera_area.lerp_speed
