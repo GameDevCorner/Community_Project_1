@@ -1,6 +1,9 @@
 extends Camera2D
 
 @export var player : Node
+@export var velocity_scaling_x : float = 0.05
+@export var velocity_scaling_positive_y : float = 0.025
+@export var velocity_scaling_negative_y : float = 0
 
 var current_camera_area: CameraArea
 var camera_areas: Array
@@ -19,15 +22,14 @@ func _ready():
 	current_camera_area = null
 	camera_areas = Array()
 	
-	bound_node = player
-	target = bound_node.global_position
+	target = player.global_position
 	global_position = target
 	intended_camera_position = global_position
 	
 	target_offset = Vector2(0, 0)
 	target_offset_target = Vector2(0, 0)
 	
-	lerp_speed = 5
+	set_camera_area_values(null)
 	
 	disable_main_camera()
 
@@ -37,12 +39,22 @@ func disable_main_camera():
 func _process(delta):
 	target_offset = target_offset.lerp(target_offset_target, delta * 5)
 	
-	target = player.global_position + target_offset
+	target = player.global_position + target_offset + get_velocity_offset()
 	
 	keep_target_in_bounds(delta)
 	
 	intended_camera_position = intended_camera_position.lerp(target, delta * lerp_speed)
 	global_position = intended_camera_position #round(intended_camera_position)
+
+func get_velocity_offset():
+	var x = player.velocity.x * velocity_scaling_x
+	var y
+	if player.velocity.y < 0:
+		y = player.velocity.y * velocity_scaling_negative_y
+	else:
+		y = player.velocity.y * velocity_scaling_positive_y
+	
+	return Vector2(x, y)
 
 func keep_target_in_bounds(delta):
 	if bound_node == null:
