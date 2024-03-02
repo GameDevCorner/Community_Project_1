@@ -40,6 +40,7 @@ size = Vector2(475.5, 456)
 [node name="BaseLevel" instance=ExtResource("1_5yyrs")]
 
 [node name="CustomCamera2D" parent="." index="1" node_paths=PackedStringArray("player") instance=ExtResource("2_uc8o6")]
+z_index = 1
 player = NodePath("../Player")
 
 [node name="Autotiles" parent="." index="3"]

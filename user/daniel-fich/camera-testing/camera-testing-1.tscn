@@ -68,7 +68,6 @@ lerp_speed = 0.75
 position = Vector2(-8, -505)
 shape = SubResource("RectangleShape2D_iu7gf")
 
-[connection signal="body_entered" from="Autotiles/Goal" to="Autotiles/Goal" method="_on_body_entered"]
 [connection signal="camera_area_entered" from="CameraArea" to="CustomCamera2D" method="set_camera_offset"]
 [connection signal="camera_area_entered" from="CameraArea2" to="CustomCamera2D" method="set_camera_offset"]
 [connection signal="camera_area_entered" from="CameraArea3" to="CustomCamera2D" method="set_camera_offset"]
