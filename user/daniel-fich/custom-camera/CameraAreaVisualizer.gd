@@ -14,6 +14,9 @@ func _draw():
 	screen_height *= 1 / get_parent().zoom.y
 	
 	var bound_offset = get_parent().bound_offset
+	var player_offset = get_parent().player_offset
+	
+	draw_player_offset(player_offset)
 	
 	if get_parent().bound_node == get_parent():
 		draw_screen_outlines(screen_width, screen_height, bound_offset)
@@ -36,3 +39,6 @@ func draw_screen_outlines(screen_width: float, screen_height: float, bound_offse
 func draw_free_area(bound_offset: Vector2):
 	var rect = Rect2(Vector2.ZERO, bound_offset)
 	draw_rect(rect, Color.YELLOW, false, 1)
+
+func draw_player_offset(player_offset: Vector2):
+	draw_dashed_line(Vector2.ZERO, player_offset, Color.RED)

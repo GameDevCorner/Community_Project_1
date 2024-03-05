@@ -48,7 +48,8 @@ layer_0/tile_data = PackedInt32Array(196614, 458752, 10, 131078, 458752, 9, 6554
 
 [node name="CameraArea0" parent="." index="4" instance=ExtResource("3_guhsc")]
 position = Vector2(-251, 1)
-zoom = Vector2(3, 3)
+player_offset = Vector2(10, -50)
+zoom = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraArea0" index="0"]
 position = Vector2(-5.5, -7)
@@ -56,9 +57,8 @@ shape = SubResource("RectangleShape2D_exkbh")
 
 [node name="CameraArea" parent="." index="5" node_paths=PackedStringArray("bound_node") instance=ExtResource("3_guhsc")]
 position = Vector2(400, -112)
-area_offset = Vector2(0, 10)
-bound_node = NodePath(".")
 lerp_speed = 4.0
+bound_node = NodePath(".")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraArea" index="0"]
 visible = false
@@ -82,7 +82,6 @@ shape = SubResource("RectangleShape2D_go85q")
 [node name="CameraArea3" parent="." index="7" node_paths=PackedStringArray("bound_node") instance=ExtResource("3_guhsc")]
 visible = false
 position = Vector2(928, -240)
-area_offset = Vector2(0, -50)
 bound_node = NodePath(".")
 bound_offset = Vector2(0, -1000)
 
@@ -104,8 +103,8 @@ shape = SubResource("RectangleShape2D_gha5g")
 
 [node name="CameraArea4" parent="." index="8" node_paths=PackedStringArray("bound_node") instance=ExtResource("3_guhsc")]
 position = Vector2(1344, -736)
-bound_node = NodePath(".")
 lerp_speed = 4.0
+bound_node = NodePath(".")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraArea4" index="0"]
 position = Vector2(34.5, -6.5)

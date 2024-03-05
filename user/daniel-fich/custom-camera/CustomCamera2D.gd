@@ -113,7 +113,7 @@ func set_camera_area_values(camera_area: CameraArea):
 		zoom_target = Vector2.ONE
 		zoom_speed = 5
 	else:
-		target_offset_target = camera_area.area_offset
+		target_offset_target = camera_area.player_offset
 		bound_node = camera_area.bound_node
 		bound_offset = camera_area.bound_offset
 		lerp_speed = camera_area.lerp_speed
