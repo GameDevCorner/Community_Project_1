@@ -17,6 +17,7 @@ func _draw():
 	
 	if get_parent().bound_node == get_parent():
 		draw_screen_outlines(screen_width, screen_height, bound_offset)
+		draw_free_area(bound_offset)
 
 func draw_screen_outlines(screen_width: float, screen_height: float, bound_offset: Vector2):
 	var screen_top_left = Vector2(-screen_width/2, -screen_height/2)
@@ -31,3 +32,7 @@ func draw_screen_outlines(screen_width: float, screen_height: float, bound_offse
 	
 	draw_rect(screen_area_rect, Color.RED, false, 1.5)
 	draw_rect(screen_rect, Color.GREEN, false, 2)
+
+func draw_free_area(bound_offset: Vector2):
+	var rect = Rect2(Vector2.ZERO, bound_offset)
+	draw_rect(rect, Color.YELLOW, false, 1)

@@ -56,9 +56,9 @@ shape = SubResource("RectangleShape2D_exkbh")
 
 [node name="CameraArea" parent="." index="5" node_paths=PackedStringArray("bound_node") instance=ExtResource("3_guhsc")]
 position = Vector2(400, -112)
+area_offset = Vector2(0, 10)
 bound_node = NodePath(".")
 lerp_speed = 4.0
-zoom = Vector2(1, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraArea" index="0"]
 visible = false
