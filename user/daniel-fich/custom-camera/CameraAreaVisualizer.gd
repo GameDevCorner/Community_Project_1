@@ -10,6 +10,9 @@ func _draw():
 	var screen_width = 480 # ProjectSettings - display/window/size/viewport_width
 	var screen_height = 270 # ProjectSettings - display/window/size/viewport_height
 	
+	screen_width *= 1 / get_parent().zoom.x
+	screen_height *= 1 / get_parent().zoom.y
+	
 	var bound_offset = get_parent().bound_offset
 	
 	if get_parent().bound_node == get_parent():
