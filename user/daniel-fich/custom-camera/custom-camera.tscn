@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8emop7mmiof5"]
+
+[ext_resource type="Script" path="res://user/daniel-fich/custom-camera/CustomCamera2D.gd" id="1_f6fqq"]
+[ext_resource type="Texture2D" uid="uid://cua55hjebi75r" path="res://icon.svg" id="2_ltrwh"]
+[ext_resource type="Script" path="res://user/daniel-fich/custom-camera/CameraTargetVisualization.gd" id="3_h7faf"]
+
+[node name="CustomCamera2D" type="Camera2D"]
+script = ExtResource("1_f6fqq")
+
+[node name="Target position" type="Sprite2D" parent="."]
+visible = false
+z_index = 11
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_ltrwh")
+script = ExtResource("3_h7faf")
+
+[node name="Camera position" type="Sprite2D" parent="."]
+visible = false
+z_index = 12
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("2_ltrwh")
