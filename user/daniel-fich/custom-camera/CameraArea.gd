@@ -16,13 +16,6 @@ class_name CameraArea
 
 signal camera_area_entered(camera_area: CameraArea, entered: bool)
 
-
-func _ready():
-	print("ready") 
-
-func _process(delta):
-	pass
-
 func _on_body_entered(body):
 	if body.get_name() == "Player":
 		camera_area_entered.emit(self, true)

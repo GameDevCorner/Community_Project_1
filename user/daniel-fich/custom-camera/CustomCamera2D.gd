@@ -1,6 +1,8 @@
 extends Camera2D
 
 @export var player : Node
+@export var initial_camera_area: CameraArea = null
+
 @export var velocity_scaling_x : float = 0.05
 @export var velocity_scaling_positive_y : float = 0.025
 @export var velocity_scaling_negative_y : float = 0
@@ -25,14 +27,14 @@ func _ready():
 	current_camera_area = null
 	camera_areas = Array()
 	
-	target = player.global_position
-	global_position = target
-	intended_camera_position = global_position
+	set_camera_area_values(initial_camera_area)
 	
-	target_offset = Vector2(0, 0)
-	target_offset_target = Vector2(0, 0)
+	target_offset = target_offset_target
+	target = player.global_position + target_offset
+	intended_camera_position = target
+	global_position = intended_camera_position
 	
-	set_camera_area_values(null)
+	zoom = zoom_target
 	
 	disable_main_camera()
 
