@@ -18,6 +18,9 @@ var intended_camera_position: Vector2
 
 var lerp_speed: float
 
+var zoom_target: Vector2
+var zoom_speed: float
+
 func _ready():
 	current_camera_area = null
 	camera_areas = Array()
@@ -37,6 +40,8 @@ func disable_main_camera():
 	player.get_node("Camera2D").enabled = false
 
 func _process(delta):
+	zoom = zoom.lerp(zoom_target, delta * zoom_speed)
+	
 	target_offset = target_offset.lerp(target_offset_target, delta * 5)
 	
 	target = player.global_position + target_offset + get_velocity_offset()
@@ -105,8 +110,12 @@ func set_camera_area_values(camera_area: CameraArea):
 		bound_node = null
 		bound_offset = Vector2.ZERO
 		lerp_speed = 5
+		zoom_target = Vector2.ONE
+		zoom_speed = 5
 	else:
 		target_offset_target = camera_area.area_offset
 		bound_node = camera_area.bound_node
 		bound_offset = camera_area.bound_offset
 		lerp_speed = camera_area.lerp_speed
+		zoom_target = camera_area.zoom
+		zoom_speed = camera_area.zoom_speed
