@@ -11,6 +11,7 @@ class_name player
 @export var friction = 10
 @export var fastfallmult = 1.5
 @export var medfallmult = 1.15
+@export var coyote_time = 0.05 # In seconds
 
 @onready var feet = $Feet
 @export var back : Marker2D
@@ -25,11 +26,20 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	Levelmanager._player = self
 
+var coyote_timer = 0.0
+
 func apply_force(force : Vector2):
 	velocity += force
 
 func _process(delta):
 	apply_physics(delta)
+	
+	# Update coyote timer
+	if is_on_floor():
+		coyote_timer = coyote_time
+	else:
+		coyote_timer -= delta
+	
 	move_and_slide()
 
 func apply_physics(delta):
@@ -48,6 +58,13 @@ func die():
 func _input(_event):
 	dir = Input.get_vector("left", "right", "up", "down")
 	dir = Vector2(round(dir.x), round(dir.y))
+	
+	# Check for jump input with coyote time
+	if _event.is_action_pressed("jump") and (coyote_timer > 0 or is_on_floor()):
+		jump()
+
+func jump():
+	velocity.y = jump_velocity
 
 func change_animation(animation_name : String):
 	if animations != null:
