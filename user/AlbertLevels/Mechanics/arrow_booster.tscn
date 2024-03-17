@@ -18,11 +18,9 @@ lifetime_randomness = 1.0
 particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
 spread = 50.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 41.1
 initial_velocity_max = 84.21
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+gravity = Vector3(0, 0, 0)
 damping_min = 22.105
 damping_max = 22.105
 scale_min = 2.0
@@ -32,6 +30,7 @@ color_ramp = SubResource("GradientTexture1D_jc5ff")
 
 [node name="Arrow" type="Area2D"]
 position = Vector2(0, 62)
+collision_mask = 17
 script = ExtResource("1_1n02q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -53,4 +52,4 @@ explosiveness = 1.0
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

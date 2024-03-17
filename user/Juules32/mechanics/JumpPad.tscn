@@ -7,6 +7,7 @@
 size = Vector2(20, 4)
 
 [node name="JumpPad" type="Area2D"]
+collision_mask = 17
 script = ExtResource("1_15qon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

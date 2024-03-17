@@ -9,6 +9,7 @@
 size = Vector2(10, 12)
 
 [node name="LaserTurret" type="StaticBody2D"]
+collision_mask = 17
 script = ExtResource("1_o6yxl")
 
 [node name="Base" type="Sprite2D" parent="."]
