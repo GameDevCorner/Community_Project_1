@@ -6,6 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_35jak"]
 
 [node name="Rotator" type="Area2D"]
+collision_layer = 256
+collision_mask = 16
 input_pickable = false
 script = ExtResource("2_02vju")
 
