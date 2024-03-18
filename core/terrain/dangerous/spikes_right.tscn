@@ -3,8 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cjsx1l50iowce" path="res://core/terrain/dangerous/spikes_left.tscn" id="1_35j6u"]
 
 [node name="SpikesRight" instance=ExtResource("1_35j6u")]
-collision_layer = 1
-collision_mask = 1
 
 [node name="Sprite2D" parent="." index="0"]
 flip_v = true
