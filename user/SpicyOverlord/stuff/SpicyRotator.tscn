@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1og1ojkymaoe"]
+
+[ext_resource type="Texture2D" uid="uid://xr7nkaudj8p2" path="res://core/assets/Items/Fruits/Orange.png" id="1_ucyuk"]
+[ext_resource type="Script" path="res://user/SpicyOverlord/stuff/Rotator.gd" id="2_02vju"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_35jak"]
+
+[node name="Rotator" type="Area2D"]
+collision_layer = 256
+collision_mask = 16
+input_pickable = false
+script = ExtResource("2_02vju")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ucyuk")
+hframes = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_35jak")
+one_way_collision_margin = 0.0
+
+[connection signal="body_entered" from="." to="." method="_on_rotator_body_entered"]
