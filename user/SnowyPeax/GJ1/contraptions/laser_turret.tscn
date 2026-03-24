@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bldxyydy3e7pl"]
+
+[ext_resource type="Script" path="res://user/SnowyPeax/GJ1/contraptions/laser_turret.gd" id="1_o6yxl"]
+[ext_resource type="Texture2D" uid="uid://butwpw24526ks" path="res://user/SnowyPeax/GJ1/turret_laser_base.png" id="1_vswks"]
+[ext_resource type="Texture2D" uid="uid://di6ggpy68plx7" path="res://user/SnowyPeax/GJ1/turret_laser_cannon.png" id="2_xlny1"]
+[ext_resource type="Texture2D" uid="uid://uiibupso6bjq" path="res://user/SnowyPeax/GJ1/turret_laser_charge.png" id="3_olw5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2n1n"]
+size = Vector2(10, 12)
+
+[node name="LaserTurret" type="StaticBody2D"]
+collision_mask = 17
+script = ExtResource("1_o6yxl")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("1_vswks")
+
+[node name="Laser" type="Line2D" parent="."]
+position = Vector2(0, -4)
+
+[node name="Ray" type="RayCast2D" parent="Laser"]
+position = Vector2(26, 0)
+
+[node name="Cannon" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("2_xlny1")
+offset = Vector2(10, 0)
+
+[node name="Charge" type="Sprite2D" parent="Cannon"]
+position = Vector2(2, 1)
+texture = ExtResource("3_olw5f")
+offset = Vector2(9.56, -0.525)
+
+[node name="Head" type="Node2D" parent="Cannon"]
+position = Vector2(26, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_g2n1n")

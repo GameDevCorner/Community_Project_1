@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://detocqk7v408n"]
+
+[ext_resource type="Texture2D" uid="uid://bhcb3q4i8abs6" path="res://user/SnowyPeax/GJ1/contraptions/turret.png" id="1_lmaxo"]
+[ext_resource type="Script" path="res://user/SnowyPeax/GJ1/contraptions/charge.gd" id="1_vr5l3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qk5bx"]
+radius = 4.0
+
+[node name="Charge" type="Area2D"]
+collision_mask = 17
+script = ExtResource("1_vr5l3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_lmaxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qk5bx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

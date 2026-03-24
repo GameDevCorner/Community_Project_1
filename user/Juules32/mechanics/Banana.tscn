@@ -45,6 +45,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_l2k2a"]
 
 [node name="Banana" type="Area2D"]
+collision_mask = 17
 script = ExtResource("1_tbqwo")
 
 [node name="Sprite" type="Sprite2D" parent="."]

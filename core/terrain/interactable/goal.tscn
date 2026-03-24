@@ -80,6 +80,7 @@ animations = [{
 size = Vector2(34, 37)
 
 [node name="Goal" type="Area2D"]
+collision_mask = 17
 script = ExtResource("1_yaps7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

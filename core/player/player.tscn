@@ -249,7 +249,7 @@ height = 22.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1458633912 node_paths=PackedStringArray("back")]
 z_index = 10
-collision_layer = 17
+collision_layer = 16
 collision_mask = 367
 script = ExtResource("1_6husf")
 back = NodePath("AnimatedSprite2D/back")
