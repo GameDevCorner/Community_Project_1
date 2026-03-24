@@ -1,6 +1,6 @@
-[gd_scene load_steps=43 format=3 uid="uid://du7rf3dv64ila"]
+[gd_scene format=3 uid="uid://du7rf3dv64ila"]
 
-[ext_resource type="Script" path="res://core/player/player_controller.gd" id="1_6husf"]
+[ext_resource type="Script" uid="uid://bye70akeeuglf" path="res://core/player/player_controller.gd" id="1_6husf"]
 [ext_resource type="Texture2D" uid="uid://ctgv8wa7c0pi3" path="res://core/assets/Main Characters/GDC Mascot/Fall (32x32).png" id="2_agavs"]
 [ext_resource type="Texture2D" uid="uid://23aptxhvybei" path="res://core/assets/Main Characters/GDC Mascot/Idle (32x32).png" id="3_s1h2v"]
 [ext_resource type="PackedScene" uid="uid://bweetaw07n750" path="res://core/player/states/state_machine.tscn" id="4_8hcse"]
@@ -247,40 +247,40 @@ animations = [{
 radius = 8.0
 height = 22.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("back")]
+[node name="Player" type="CharacterBody2D" unique_id=1458633912 node_paths=PackedStringArray("back")]
 z_index = 10
-collision_layer = 16
+collision_layer = 17
 collision_mask = 367
 script = ExtResource("1_6husf")
 back = NodePath("AnimatedSprite2D/back")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=372269209]
 sprite_frames = SubResource("SpriteFrames_mi6bj")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="back" type="Marker2D" parent="AnimatedSprite2D"]
+[node name="back" type="Marker2D" parent="AnimatedSprite2D" unique_id=1839575033]
 position = Vector2(8, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=258559019]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_71xeu")
 
-[node name="StateMachine" parent="." node_paths=PackedStringArray("default_state") instance=ExtResource("4_8hcse")]
+[node name="StateMachine" parent="." unique_id=1975807023 node_paths=PackedStringArray("default_state") instance=ExtResource("4_8hcse")]
 default_state = NodePath("Idle")
 
-[node name="Idle" parent="StateMachine" instance=ExtResource("5_aqoqn")]
+[node name="Idle" parent="StateMachine" unique_id=597995411 instance=ExtResource("5_aqoqn")]
 
-[node name="Move" parent="StateMachine" instance=ExtResource("6_r64p6")]
+[node name="Move" parent="StateMachine" unique_id=1554937637 instance=ExtResource("6_r64p6")]
 
-[node name="Jump" parent="StateMachine" instance=ExtResource("7_c3to6")]
+[node name="Jump" parent="StateMachine" unique_id=175980036 instance=ExtResource("7_c3to6")]
 
-[node name="Fall" parent="StateMachine" instance=ExtResource("10_ws0dy")]
+[node name="Fall" parent="StateMachine" unique_id=148505503 instance=ExtResource("10_ws0dy")]
 
-[node name="Wallslide" parent="StateMachine" instance=ExtResource("12_pn4sa")]
+[node name="Wallslide" parent="StateMachine" unique_id=236588573 instance=ExtResource("12_pn4sa")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=745894223]
 position_smoothing_enabled = true
 
-[node name="Feet" type="Marker2D" parent="."]
+[node name="Feet" type="Marker2D" parent="." unique_id=1641765124]
 position = Vector2(0, 15)

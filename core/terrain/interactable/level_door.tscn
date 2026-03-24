@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://byp1lb08f3pk2"]
+[gd_scene format=3 uid="uid://byp1lb08f3pk2"]
 
-[ext_resource type="Script" path="res://core/terrain/interactable/level_door.gd" id="1_diiro"]
+[ext_resource type="Script" uid="uid://bu02tk1px2r4v" path="res://core/terrain/interactable/level_door.gd" id="1_diiro"]
 [ext_resource type="Texture2D" uid="uid://b43oo2frv3jug" path="res://core/assets/Items/Boxes/Box3/Idle.png" id="1_m1fl5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j53sv"]
@@ -20,20 +20,20 @@ animations = [{
 font_size = 8
 font_color = Color(0, 0, 0, 1)
 
-[node name="LevelDoor" type="Area2D"]
+[node name="LevelDoor" type="Area2D" unique_id=1135179003]
 script = ExtResource("1_diiro")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=681157004]
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_j53sv")
 animation = &"idle"
 frame_progress = 0.221749
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=177984755]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_s3ccy")
 
-[node name="LevelNameLabel" type="Label" parent="."]
+[node name="LevelNameLabel" type="Label" parent="." unique_id=1408698869]
 offset_left = -21.0
 offset_top = -27.0
 offset_right = 19.0
